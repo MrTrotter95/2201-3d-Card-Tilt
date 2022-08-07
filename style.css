@@ -11,7 +11,6 @@ body {
     position: relative;
     background-color: black;
     font-family: Josefin Sans;
-
 }
 
 .main-container {
@@ -110,9 +109,67 @@ body {
 }
 /*---------- END OF HERO TEXT ----------*/
 
+/*---------- START OF BUTTON STYLING ---------- */
+.btn-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
 
+.primary-btn {
+    position: relative;
+    z-index: 3;
+    height: 60px;
+    width: 200px;
+    font-size: 22px;
+    font-family: Josefin Sans;
+    font-weight: 300;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    opacity: 100%;
+    transition: opacity;
+    animation: btn-animate 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
 
+@keyframes btn-animate {
+    0% {opacity: 25%;}
+    50% {opacity: 100%;}
+    100% {opacity: 25%;}
+}
 
+.primary-btn:hover {
+    color: #FF1A8C;
+    cursor: pointer;
+}
+
+/*pseudo element for fancy hover animation */
+.primary-btn::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #FF1A8C;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+/*pseudo element for fancy hover animation */
+.primary-btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    cursor: pointer;
+}
+/*---------- END OF BUTTON STYLING ---------- */
 
 /*---------- START OF GENERAL CARD STYLING ---------- */
 .card-container {
@@ -145,13 +202,24 @@ body {
     background-image: linear-gradient(to bottom right, #006478, rgb(183, 27, 92) );
     transform-style: preserve-3d;
     transform:perspective(1000px);
+
 }
 
 .card-1__img {
     background-image: url("./images/image-1.jpg");
+    background-size: contain;
     margin-top: 17px;
     margin-left: 17px;
     transform: translateZ(40px);
+    animation: breathe 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes breathe {
+    0% {background-size: 180%;}
+    50% {background-size: 210%;}
+    100% {background-size: 180%;}
 }
 
 .card-1__border {
@@ -179,9 +247,18 @@ body {
 }
 
 .card-2__img {
-    background-image: url("./images/image-2.jpg");    
+    background-image: url("./images/image-2.jpg");
+    background-repeat: repeat;  
     margin-top: 17px;
     margin-left: 17px;
+    animation: card-2__animate 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes card-2__animate {
+    0% {background-position-y: 0px;}
+    100% {background-position-y: 366px;}
 }
 
 .card-2__border {
@@ -212,9 +289,19 @@ body {
 
 .card-3__img {
     background-image: url("./images/image-3.jpg");
+    background-size: 120%;
     margin-top: 17px;
     margin-left: 17px;
     transform: translateZ(40px);
+    animation: card-3__animate 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes card-3__animate {
+    0% {background-size: 120%;}
+    50% {background-size: 140%;}
+    100% {background-size: 120%;}
 }
 
 .card-3__border {
@@ -247,6 +334,17 @@ body {
     background-image: url("./images/image-4.jpg");
     margin-top: 17px;
     margin-left: 17px;
+    animation: card-4__animate 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes card-4__animate {
+    0% {background-position-x: 0px;}
+    50% {background-position-x: 10px;}
+    50% {background-position-x: 0px;}
+    50% {background-position-x: -10px;}
+    100% {background-position-x: 0px;}
 }
 
 .card-4__border {
@@ -280,6 +378,16 @@ body {
     margin-top: 17px;
     margin-left: 17px;
     transform: translateZ(40px);
+    animation: card-5__animate 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-position: center;
+}
+
+@keyframes card-5__animate {
+    0% {background-size: 100%;}
+    50% {background-size: 120%;}
+    100% {background-size: 100%;}
 }
 
 .card-5__border {
